@@ -1,0 +1,34 @@
+import random
+
+def crear_lista(cantidad):
+    """Crea una lista con 'cantidad' enteros aleatorios entre 10 y 99."""
+    if cantidad <= 0:
+        return []
+    
+    return crear_lista(cantidad - 1) + [random.randint(10, 99)]
+
+
+def suma_multiplos_3(lista, i=0):
+    """Suma recursivamente los múltiplos de 3 de la lista."""
+    if i == len(lista):
+        return 0
+    
+    if lista[i] % 3 == 0:
+        actual = lista[i]
+    else:
+        actual = 0
+    
+    return actual + suma_multiplos_3(lista, i + 1)
+
+
+def ejercicio2():
+    cantidad = int(input("Cantidad de elementos: "))
+    
+    lista = crear_lista(cantidad)
+    
+    print("Lista:", lista)
+    print("Suma de multiplos de 3:", suma_multiplos_3(lista))
+
+
+if __name__ == "__main__":
+    ejercicio2()
